@@ -1,0 +1,10 @@
+name: Check push
+
+on: [push]
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo 'Check executed successfully'
