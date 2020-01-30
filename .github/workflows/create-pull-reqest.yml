@@ -1,9 +1,6 @@
 name: Create PR
 
-on:
-  push:
-    branches:
-      - master
+on: [push]
 
 jobs:
   create-pr:
@@ -14,6 +11,7 @@ jobs:
 
       - run: date +%s > report.txt
 
-      - uses: peter-evans/create-pull-request@v2
+      - uses: proudust/create-pull-request@using-ssh
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
