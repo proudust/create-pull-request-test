@@ -1,0 +1,19 @@
+name: Create PR
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - run: date +%s > report.txt
+
+      - uses: peter-evans/create-pull-request@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
